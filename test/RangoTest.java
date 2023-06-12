@@ -3,9 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 /**
  *
  * @author Roge
@@ -14,19 +11,25 @@ import static org.junit.Assert.*;
 /**
  * Clase de prueba para la clase Rango.
  */
+import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import static org.junit.Assert.assertEquals;
+
 public class RangoTest {
-    /**
-     * Prueba unitaria para el método imprimirNumerosEnRango.
-     */
     @Test
-    public void testImprimirNumerosEnRango() {
-        Rango.imprimirNumerosEnRango(2, 6);
-        // Esperamos que se imprima: 3, 4, 5
+    public void imprimirNumerosEnRango_impresionCorrecta() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
 
-        Rango.imprimirNumerosEnRango(10, 20);
-        // Esperamos que se imprima: 11, 12, 13, 14, 15, 16, 17, 18, 19
+        Rango.imprimirNumerosEnRango(1, 10);
 
-        Rango.imprimirNumerosEnRango(7, 7);
-        // Esperamos que se imprima: No hay números en el rango especificado.
+        System.setOut(System.out);
+
+        String salida = outputStream.toString().trim();
+
+        String resultadoEsperado = "2\n4\n6\n8";
+        assertEquals(resultadoEsperado, salida);
     }
 }
+
