@@ -50,11 +50,11 @@ public class Rango {
 
         StringBuilder sb = new StringBuilder();
         for (int i = inicio + 1; i < fin; i++) {
-            if (i % 2 == 0) {
-                sb.append(i).append("\n");
+            if (i % 2 != 0) {
+                sb.append(i).append(" ");
             }
         }
-        System.out.print(sb.toString());
+        System.out.println(sb.toString().trim());
     }
 
 }

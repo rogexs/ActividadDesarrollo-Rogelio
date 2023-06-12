@@ -28,8 +28,7 @@ public class RangoTest {
 
         String salida = outputStream.toString().trim();
 
-        String resultadoEsperado = "2\n4\n6\n8";
+        String resultadoEsperado = "3 5 7 9";
         assertEquals(resultadoEsperado, salida);
     }
 }
-
